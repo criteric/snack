@@ -1,0 +1,6 @@
+# Snack settings (copy to ~/.config/snack/config.toml)
+autosave_seconds = 30
+show_tree = true
+vim_mode = false
+tab_width = 4
+autocomplete = true

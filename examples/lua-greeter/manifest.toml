@@ -1,0 +1,9 @@
+[plugin]
+id = "local.greeter"
+name = "Greeter"
+version = "0.1.0"
+sdk = "^1.0"
+language = "lua"
+runtime = "lua"
+activation = "onCommand:local.greeter"
+permissions = ["all"]

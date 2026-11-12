@@ -1,0 +1,10 @@
+[plugin]
+id = "criteric.insert-timestamp"
+name = "Insert Timestamp"
+version = "0.1.0"
+sdk = "^1.0"
+language = "lua"
+runtime = "lua"
+activation = "onCommand:insert-timestamp"
+description = "Insert the current local date and time at the cursor"
+permissions = ["all"]

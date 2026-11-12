@@ -1,0 +1,10 @@
+[plugin]
+id = "criteric.quick-todo"
+name = "Quick TODO"
+version = "0.1.0"
+sdk = "^1.0"
+language = "lua"
+runtime = "lua"
+activation = "onCommand:criteric.quick-todo"
+description = "Insert a dated TODO marker at the cursor"
+permissions = ["all"]
