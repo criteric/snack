@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Snack — Terminal Editor</title>
-<meta name="description" content="Snack: Rust ile geliştirilen terminal kod editörü.">
+<meta name="description" content="Snack is a terminal code editor built with Rust.">
 <style>
 :root{color-scheme:dark;--bg:#111318;--fg:#d9dce5;--muted:#9399a9;--line:#303440;--link:#a9b8f7}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}main,header,footer{max-width:790px;margin:auto;padding:0 22px}header{padding-top:27px;padding-bottom:22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.logo{font-size:20px;font-weight:750;letter-spacing:-.6px}nav{display:flex;gap:18px}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}nav a{color:var(--muted)}h1{font-size:clamp(32px,7vw,48px);letter-spacing:-1.6px;line-height:1.15;margin:64px 0 16px}h2{font-size:21px;letter-spacing:-.4px;margin:45px 0 12px}p{color:var(--muted);max-width:630px}strong{color:var(--fg)}.lead{font-size:18px}.links{display:flex;gap:18px;margin:22px 0 38px}.terminal{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#171a21}.bar{border-bottom:1px solid var(--line);padding:8px 14px;color:var(--muted);font:12px ui-monospace,monospace}.terminal pre{overflow:auto;padding:12px 18px;font:13px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0;color:#c6cce0}.dim{color:#858da1}.accent{color:#a4d4b5}.features{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}.features p{margin:4px 0 14px}.install{border-top:1px solid var(--line);padding:16px 0}.install:first-of-type{border-top:0}.install h3{font-size:15px;margin:0 0 5px}.cmd{padding:10px 13px;border:1px solid var(--line);background:#191c23;border-radius:5px;overflow:auto;font:13px ui-monospace,monospace;white-space:nowrap}.tag{font-size:12px;color:#e6c58b}footer{border-top:1px solid var(--line);margin-top:60px;padding-top:22px;padding-bottom:35px;color:var(--muted);font-size:13px}@media(max-width:560px){.features{grid-template-columns:1fr}nav{gap:10px}h1{margin-top:42px}}
 </style>
 </head>
 <body>
-<header><div class="logo">snack<span style="color:#a9b8f7">.</span></div><nav><a href="#features">Özellikler</a><a href="#install">Kurulum</a><a href="https://github.com/criteric/snack">GitHub</a></nav></header>
+<header><div class="logo">snack<span style="color:#a9b8f7">.</span></div><nav><a href="#features">Features</a><a href="#install">Installation</a><a href="https://github.com/criteric/snack">GitHub</a></nav></header>
 <main>
-<h1>Terminalde kod yazmanın<br>basit bir yolu.</h1>
-<p class="lead">Snack, Rust ile geliştirilen bir terminal kod editörü. Klavyeyi bırakmadan dosyalarınızı düzenleyin, projelerinizi yönetin.</p>
-<div class="links"><a href="https://github.com/criteric/snack">Kaynak kodu →</a><a href="#install">Kurulum seçenekleri →</a></div>
-<div class="terminal" aria-label="Temsili Snack terminal arayüzü"><div class="bar">snack · src/main.rs (temsili görünüm)</div><pre><span class="dim"> 1 │</span> <span class="accent">fn</span> main() {
+<h1>A simple way to write code<br>in your terminal.</h1>
+<p class="lead">Snack is a terminal code editor written in Rust. Edit files and navigate projects without leaving your keyboard.</p>
+<div class="links"><a href="https://github.com/criteric/snack">Source code →</a><a href="#install">Installation options →</a></div>
+<div class="terminal" aria-label="Illustrative Snack terminal interface"><div class="bar">snack · src/main.rs (illustrative preview)</div><pre><span class="dim"> 1 │</span> <span class="accent">fn</span> main() {
 <span class="dim"> 2 │</span>     println!("Hello from Snack!");
 <span class="dim"> 3 │</span> }
 <span class="dim">   │</span>
 <span class="dim">   └─</span> main.rs                       Rust</pre></div>
-<section id="features"><h2>Üzerinde çalıştıklarımız</h2><div class="features"><div><strong>Terminal arayüzü</strong><p>Sekmeler, dosya gezgini ve klavye odaklı düzenleme.</p></div><div><strong>Kod araçları</strong><p>Syntax highlighting, LSP, tamamlama ve Git entegrasyonu hedefleri.</p></div><div><strong>snackctl</strong><p>Komut satırından eklenti ve yapılandırma yönetimi.</p></div><div><strong>.yummy eklentileri</strong><p>Snack için tasarlanan çok platformlu eklenti paketleri.</p></div></div></section>
-<section id="install"><h2>Kurulum</h2><p>Windows ve Linux için kurulum kanalları hazırlanıyor. Aşağıdaki komutlar <strong>planlanan arayüzü</strong> gösterir; yayınlanmış yükleyici veya paket kaydı olmadan çalışmaz.</p><div class="install"><h3>Windows · winget <span class="tag">(planlanıyor)</span></h3><div class="cmd">winget install Criteric.Snack</div></div><div class="install"><h3>Windows · PowerShell <span class="tag">(planlanıyor)</span></h3><div class="cmd">irm https://criteric.github.io/snack/install.ps1 | iex</div></div><div class="install"><h3>Linux <span class="tag">(planlanıyor)</span></h3><div class="cmd">curl -fsSL https://criteric.github.io/snack/install.sh | bash</div></div><p>Şimdilik geliştirme durumunu ve mevcut sürümleri <a href="https://github.com/criteric/snack">GitHub deposundan</a> takip edin.</p></section>
-</main><footer>Snack Terminal Editor · Rust ile geliştiriliyor · <a href="https://github.com/criteric/snack">GitHub</a></footer>
+<section id="features"><h2>What we are building</h2><div class="features"><div><strong>Terminal interface</strong><p>Tabs, a file explorer, and keyboard-first editing.</p></div><div><strong>Coding tools</strong><p>Syntax highlighting, LSP, completion, and Git integration are on the roadmap.</p></div><div><strong>snackctl</strong><p>Manage plugins and settings from the command line.</p></div><div><strong>.yummy eklentileri</strong><p>Cross-platform plugin packages designed for Snack.</p></div></div></section>
+<section id="install"><h2>Installation</h2><p>Windows and Linux installation methods are in development. The commands below show the <strong>planned interface</strong> and will not work until the installers and package listings are published.</p><div class="install"><h3>Windows · winget <span class="tag">(planned)</span></h3><div class="cmd">winget install Criteric.Snack</div></div><div class="install"><h3>Windows · PowerShell <span class="tag">(planned)</span></h3><div class="cmd">irm https://criteric.github.io/snack/install.ps1 | iex</div></div><div class="install"><h3>Linux <span class="tag">(planned)</span></h3><div class="cmd">curl -fsSL https://criteric.github.io/snack/install.sh | bash</div></div><p>For now, follow development and available releases in the <a href="https://github.com/criteric/snack">GitHub repository</a>.</p></section>
+</main><footer>Snack Terminal Editor · Built with Rust · <a href="https://github.com/criteric/snack">GitHub</a></footer>
 </body></html>
