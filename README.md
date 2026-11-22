@@ -2,7 +2,30 @@
 
 **New:** press `F9` in Snack or select **Extensions → Marketplace...** to open the built-in plugin browser. It reads the existing official registry at `criteric/snack-plugins` and downloads verified `.yummy` packages from GitHub Releases. It uses Tokyo Night colors and the editor's existing diff renderer.
 
-## Install / test on Zorin OS
+Snack is developed on **Fedora Linux** and can be built and installed on **Fedora Linux, Debian, and Arch Linux**.
+
+## Install on Linux
+
+From the Snack source directory, install the build dependencies and optional file picker and Lua runtime using your distribution's package manager:
+
+| Distribution | Commands |
+| --- | --- |
+| Fedora Linux | `sudo dnf install gcc git rust cargo zenity lua` |
+| Debian | `sudo apt update` followed by `sudo apt install build-essential git rustc cargo zenity lua5.4` |
+| Arch Linux | `sudo pacman -Syu --needed base-devel git rust zenity lua` |
+
+These commands install the dependencies. Build, test, and install Snack and Snackctl from source:
+
+```bash
+cargo test
+cargo build --release
+install -Dm755 target/release/snack "$HOME/.local/bin/snack"
+install -Dm755 target/release/snackctl "$HOME/.local/bin/snackctl"
+```
+
+Run `snack` if `~/.local/bin` is on your PATH, or run `~/.local/bin/snack` directly.
+
+### Test without installing
 
 ```bash
 cargo test
@@ -43,19 +66,19 @@ Publishing requires `gh auth login` and write permissions to `criteric/snack-plu
 - Only Lua runtime plugins work at present. Native/WASM, plugin ratings, screenshots, advanced lazy loading, and a fully featured LSP plugin SDK remain future work.
 - The Included Quick TODO package is not yet listed in the official index until you publish it.
 - The Marketplace's shell-only CLI remains available via `snackctl search`, `snackctl install`, `snackctl list`, and `snackctl update`.
-- **No Rust compiler was available in the artifact preparation environment.** Source-level checks and `.yummy` binary integrity checks were performed, but `cargo test` and `cargo build` must be run on Zorin OS. Please share any compiler errors for a focused fix.
+- **No Rust compiler was available in the artifact preparation environment.** Source-level checks and `.yummy` binary integrity checks were performed, but `cargo test` and `cargo build` should be run on your target distribution. Please share any compiler errors for a focused fix.
 
 # Snack 0.6.2 — Context-Aware Mouse Menus (Rust)
 
 Snack is a lightweight, Tokyo Night terminal code editor for **Linux and Windows**. This release extends the last working 0.5.0 tree; the existing `snackctl` tool and custom `.yummy` archive format are preserved.
 
-> **Build status:** This source package was checked for module completeness, Rust delimiter balance, archive integrity and expected command wiring. `cargo build` and `cargo test` **could not be run in the packaging environment** because Rust was not installed. Run the included smoke test on your Zorin OS system. These are development sources, not verified release binaries.
+> **Build status:** This source package was checked for module completeness, Rust delimiter balance, archive integrity and expected command wiring. `cargo build` and `cargo test` **could not be run in the packaging environment** because Rust was not installed. Run the included smoke test on your Linux system. These are development sources, not verified release binaries.
 
-## 1. Installation and build (Zorin OS)
+## 1. Installation and build on Linux
+
+Install the dependencies for your distribution using the table above, then run:
 
 ```bash
-sudo apt update
-sudo apt install -y zenity git build-essential lua5.4
 cd snack-0.6.2
 cargo test
 cargo build --release
@@ -84,7 +107,7 @@ Launch from your project root:
 | Existing completion | Type `main` then Tab in `.rs` | Snippets + current-file words retained |
 | Language server completion | **Ctrl+Space** in Rust code | Uses the installed `rust-analyzer` LSP asynchronously; several other servers detected by executable name |
 | Explorer | Click folders on the left | Expand/collapse nested folders; right-click for create, rename and delete |
-| File picker | Ctrl+O for folder, Ctrl+Shift+O / F4 for file | Zorin GTK/Zenity or Windows native picker retained |
+| File picker | Ctrl+O for folder, Ctrl+Shift+O / F4 for file | Linux GTK/Zenity or Windows native picker retained |
 | Git changes | **Ctrl+G** | Read-only status list; click a changed file to open it; View > Refresh Git |
 | Command panel | **Ctrl+`** or View > Terminal Panel | Run shell commands in editor and view output; **not a PTY** — interactive TUI commands aren't supported here |
 | Existing interactive shell | Ctrl+T | Temporarily exits editor UI to run your interactive shell, then returns |
@@ -172,8 +195,9 @@ Mouse right-click is **region-aware** rather than always opening the Explorer me
 
 **Text selection:** drag the left mouse button across code, or hold Shift and use arrow keys. Right-click within an existing selection to keep it; right-click elsewhere moves the caret. `Ctrl+A`, `Ctrl+C`, `Ctrl+X`, and `Ctrl+V` are supported. With no selection, Copy/Cut operates on the whole current line. Desktop clipboard on Linux uses `wl-clipboard`, `xclip` or `xsel`; internal Snack clipboard works without them.
 
+For desktop clipboard support, install `xclip` for X11 or `wl-clipboard` for Wayland using `dnf install` on Fedora, `apt install` on Debian, or `pacman -S` on Arch.
+
 ```bash
-sudo apt install -y xclip  # Zorin OS X11; or install wl-clipboard for Wayland
 cargo test
 cargo build --release
 ./target/release/snack examples/demo.html
